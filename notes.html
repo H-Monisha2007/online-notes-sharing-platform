@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NoteCloud</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="cloud-header">
+
+    <div class="cloud-brand">
+
+        <div class="cloud-brand-icon">
+            ☁️
+        </div>
+
+        <div>
+            <h2>Note<span>Cloud</span></h2>
+            <small>Knowledge • Share • Grow</small>
+        </div>
+
+    </div>
+
+
+    <div class="header-search">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+        type="text"
+        id="searchInput"
+        placeholder="Search notes, subjects..."
+        onkeyup="searchNotes()">
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <button onclick="showNotification()" title="Notifications">
+            🔔
+        </button>
+
+        <button onclick="toggleTheme()" title="Change theme">
+            🌙
+        </button>
+
+        <div class="avatar">
+            👤
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="cloud-main">
+
+
+    <!-- HERO -->
+
+    <section class="cloud-hero">
+
+        <div class="hero-content">
+
+            <p class="hero-label">
+                ☁️ YOUR DIGITAL KNOWLEDGE SPACE
+            </p>
+
+            <h1>
+                Learn something new
+                <span>every day.</span>
+            </h1>
+
+            <p>
+                Explore class notes, share your knowledge,
+                and build your own digital library.
+            </p>
+
+            <button
+            class="hero-explore"
+            onclick="scrollToNotes()">
+
+                Explore Notes
+                <i class="fa-solid fa-arrow-down"></i>
+
+            </button>
+
+        </div>
+
+        <div class="hero-cloud">
+
+            ☁️
+
+            <div class="mini-paper p1">📄</div>
+            <div class="mini-paper p2">📚</div>
+            <div class="mini-paper p3">💡</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUICK STATS -->
+
+    <section class="quick-stats">
+
+        <div>
+            <span>📚</span>
+            <strong>500+</strong>
+            <small>Shared Notes</small>
+        </div>
+
+        <div>
+            <span>👥</span>
+            <strong>150+</strong>
+            <small>Students</small>
+        </div>
+
+        <div>
+            <span>⬇️</span>
+            <strong>2.5K</strong>
+            <small>Downloads</small>
+        </div>
+
+        <div>
+            <span>⭐</span>
+            <strong>4.9</strong>
+            <small>Average Rating</small>
+        </div>
+
+    </section>
+
+
+    <!-- SUBJECTS -->
+
+    <section class="subject-section">
+
+        <div class="section-heading">
+
+            <div>
+                <p>EXPLORE</p>
+                <h2>📚 Study Subjects</h2>
+            </div>
+
+            <span>
+                Choose your subject
+            </span>
+
+        </div>
+
+
+        <div class="subject-row">
+
+
+            <button
+            class="subject-pill ai"
+            onclick="filterSubject('AI')">
+
+                <span>🤖</span>
+
+                <div>
+                    <strong>Artificial Intelligence</strong>
+                    <small>12 Notes</small>
+                </div>
+
+            </button>
+
+
+            <button
+            class="subject-pill data"
+            onclick="filterSubject('Data Science')">
+
+                <span>📊</span>
+
+                <div>
+                    <strong>Data Science</strong>
+                    <small>15 Notes</small>
+                </div>
+
+            </button>
+
+
+            <button
+            class="subject-pill speech"
+            onclick="filterSubject('Text and Speech Analysis')">
+
+                <span>🗣️</span>
+
+                <div>
+                    <strong>Text & Speech Analysis</strong>
+                    <small>10 Notes</small>
+                </div>
+
+            </button>
+
+
+            <button
+            class="subject-pill web"
+            onclick="filterSubject('Web Technologies')">
+
+                <span>🌐</span>
+
+                <div>
+                    <strong>Web Technologies</strong>
+                    <small>18 Notes</small>
+                </div>
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- NOTES -->
+
+    <section
+    class="notes-section"
+    id="notesSection">
+
+        <div class="section-heading">
+
+            <div>
+                <p>TRENDING NOW</p>
+                <h2>🔥 Popular Notes</h2>
+            </div>
+
+            <button onclick="showAllNotes()">
+                Show All →
+            </button>
+
+        </div>
+
+
+        <div class="notes-container" id="notesContainer">
+
+
+            <!-- AI -->
+
+            <article
+            class="cloud-note"
+            data-title="Artificial Intelligence"
+            data-subject="AI">
+
+                <div class="note-head">
+
+                    <div class="big-note-icon ai-icon">
+                        🤖
+                    </div>
+
+                    <button
+                    class="heart"
+                    onclick="toggleFavorite(this)">
+                        ♡
+                    </button>
+
+                </div>
+
+                <span class="tag ai-tag">
+                    AI
+                </span>
+
+                <h3>
+                    Artificial Intelligence
+                </h3>
+
+                <p>
+                    Machine learning, neural networks,
+                    AI applications and algorithms.
+                </p>
+
+                <div class="note-info">
+
+                    <span>👤 Student</span>
+
+                    <span>⭐ 4.9</span>
+
+                </div>
+
+                <button
+                class="read-button"
+                onclick="readNote('Artificial Intelligence')">
+
+                    Read Note
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </article>
+
+
+            <!-- DATA SCIENCE -->
+
+            <article
+            class="cloud-note"
+            data-title="Data Science"
+            data-subject="Data Science">
+
+                <div class="note-head">
+
+                    <div class="big-note-icon data-icon">
+                        📊
+                    </div>
+
+                    <button
+                    class="heart"
+                    onclick="toggleFavorite(this)">
+                        ♡
+                    </button>
+
+                </div>
+
+                <span class="tag data-tag">
+                    DATA
+                </span>
+
+                <h3>
+                    Data Science
+                </h3>
+
+                <p>
+                    Data analysis, visualization,
+                    statistics and machine learning.
+                </p>
+
+                <div class="note-info">
+
+                    <span>👤 Reshma</span>
+
+                    <span>⭐ 4.8</span>
+
+                </div>
+
+                <button
+                class="read-button"
+                onclick="readNote('Data Science')">
+
+                    Read Note
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </article>
+
+
+            <!-- TEXT SPEECH -->
+
+            <article
+            class="cloud-note"
+            data-title="Text and Speech Analysis"
+            data-subject="Text and Speech Analysis">
+
+                <div class="note-head">
+
+                    <div class="big-note-icon speech-icon">
+                        🗣️
+                    </div>
+
+                    <button
+                    class="heart"
+                    onclick="toggleFavorite(this)">
+                        ♡
+                    </button>
+
+                </div>
+
+                <span class="tag speech-tag">
+                    NLP
+                </span>
+
+                <h3>
+                    Text & Speech Analysis
+                </h3>
+
+                <p>
+                    NLP, tokenization, sentiment analysis
+                    and speech processing.
+                </p>
+
+                <div class="note-info">
+
+                    <span>👤 Priya</span>
+
+                    <span>⭐ 4.9</span>
+
+                </div>
+
+                <button
+                class="read-button"
+                onclick="readNote('Text and Speech Analysis')">
+
+                    Read Note
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </article>
+
+
+            <!-- WEB -->
+
+            <article
+            class="cloud-note"
+            data-title="Web Technologies"
+            data-subject="Web Technologies">
+
+                <div class="note-head">
+
+                    <div class="big-note-icon web-icon">
+                        🌐
+                    </div>
+
+                    <button
+                    class="heart"
+                    onclick="toggleFavorite(this)">
+                        ♡
+                    </button>
+
+                </div>
+
+                <span class="tag web-tag">
+                    WEB
+                </span>
+
+                <h3>
+                    Web Technologies
+                </h3>
+
+                <p>
+                    HTML, CSS, JavaScript,
+                    responsive and interactive websites.
+                </p>
+
+                <div class="note-info">
+
+                    <span>👤 Kavin</span>
+
+                    <span>⭐ 4.7</span>
+
+                </div>
+
+                <button
+                class="read-button"
+                onclick="readNote('Web Technologies')">
+
+                    Read Note
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- UPLOAD -->
+
+    <section class="upload-area">
+
+        <div class="upload-cloud">
+
+            <div class="upload-symbol">
+                ☁️
+            </div>
+
+            <h2>
+                Share your knowledge
+            </h2>
+
+            <p>
+                Upload your notes and help another student learn.
+            </p>
+
+
+            <div class="upload-form">
+
+                <input
+                type="text"
+                id="noteTitle"
+                placeholder="Enter note title">
+
+
+                <select id="noteSubject">
+
+                    <option value="">
+                        Select Subject
+                    </option>
+
+                    <option value="AI">
+                        🤖 Artificial Intelligence
+                    </option>
+
+                    <option value="Data Science">
+                        📊 Data Science
+                    </option>
+
+                    <option value="Text and Speech Analysis">
+                        🗣️ Text & Speech Analysis
+                    </option>
+
+                    <option value="Web Technologies">
+                        🌐 Web Technologies
+                    </option>
+
+                </select>
+
+
+                <input
+                type="file"
+                id="noteFile">
+
+
+                <button onclick="uploadNote()">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    Upload Note
+
+                </button>
+
+            </div>
+
+
+            <p
+            id="uploadMessage"
+            class="upload-message">
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div>
+            ☁️ <strong>NoteCloud</strong>
+        </div>
+
+        <p>
+            Share knowledge. Build your future.
+        </p>
+
+        <a href="index.html">
+            ← Back to Home
+        </a>
+
+    </footer>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
